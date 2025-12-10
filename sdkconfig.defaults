@@ -1,0 +1,102 @@
+### # FreeRTOS tick rate (required by esp32-arduino based drivers)
+### CONFIG_FREERTOS_HZ=1000
+### 
+### # PSRAM (required for large frame buffers and GIF/audio buffers)
+### CONFIG_SPIRAM_SUPPORT=y
+### CONFIG_ESP32S3_SPIRAM_SUPPORT=y
+### CONFIG_SPIRAM_USE_CAPS_ALLOC=y
+### CONFIG_SPIRAM_ALLOW_STACK_EXTERNAL_MEMORY=y
+### CONFIG_SPIRAM_BOOT_INIT=y
+### CONFIG_SPIRAM_SPEED_80M=y
+### CONFIG_SPIRAM_SIZE_8MB=y
+### 
+### # MatrixPanel / I2S DMA driver related
+### CONFIG_I2S_STD_SUPPORT=y
+### CONFIG_I2S_ISR_ALLOC_IRAM=y
+### CONFIG_I2S_SUPPORTS_DAC_OUTPUT=n
+### CONFIG_I2S_DAC_MODE_DISABLED=y
+### 
+### # Ensure I2S driver can be used in IRAM for DMA-critical code
+### CONFIG_I2S_CHANNELS_NUM=1
+### CONFIG_I2S_STD_ENABLE=y
+### 
+### # SPI and SD card (SPI mode)
+### CONFIG_SPI_MASTER_IN_IRAM=y
+### CONFIG_SD_SPI_SUPPORT=y
+### CONFIG_SDMMC_HOST=n
+### CONFIG_FATFS_LFN_STACK=y
+### CONFIG_FATFS_CODEPAGE_DYNAMIC=y
+### CONFIG_FATFS_FS_LOCK=8
+### CONFIG_FATFS_MAX_FILES=8
+### CONFIG_FATFS_ALL_OFS=y
+### 
+### # VFS and FATFS tuning
+### CONFIG_VFS_SUPPORT_IO=y
+### CONFIG_VFS_SUPPORT_DIR=y
+### 
+### # Logging and console
+### CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+### CONFIG_ESP_CONSOLE_UART_DEFAULT=y
+### 
+### # Networking (for later modules)
+### CONFIG_ESP_NETIF=y
+### CONFIG_ESP_HTTP_SERVER_ENABLE=y
+### CONFIG_ESP_HTTP_CLIENT_ENABLE_HTTPS=y
+### 
+### # Task watchdog (useful during bring-up)
+### CONFIG_ESP_TASK_WDT=y
+### CONFIG_ESP_TASK_WDT_TIMEOUT_S=8
+### 
+### # Heap and memory allocation
+### CONFIG_HEAP_POISONING_COMPREHENSIVE=y
+### 
+### # CPU frequency (typical)
+### CONFIG_ESP32S3_DEFAULT_CPU_FREQ_MHZ=240
+### 
+### # Optional: enable USB CDC console if using USB serial
+### # CONFIG_USB_CDC_ACM_ENABLED=y
+### 
+### # Optional: enable mbedTLS TLS 1.2 for HTTPS (if using web upload)
+### CONFIG_MBEDTLS_SSL_PROTO_TLS1_2=y
+### CONFIG_MBEDTLS_TLS_ENABLED=y
+### 
+### # Enable FATFS long file name support (LFN)
+### CONFIG_FATFS_LFN_HEAP=y
+### 
+### # Enable driver support used by MatrixPanel_I2S_DMA
+### CONFIG_DRIVER_I2S=y
+### 
+### # Enable RMT for NeoPixel (status LED)
+### CONFIG_RMT=y
+### 
+### # Enable I2C driver (PN532)
+### CONFIG_I2C=y
+### 
+### # Enable ADC for battery monitor
+### CONFIG_ADC=y
+
+
+# SPI RAM and heap
+CONFIG_SPIRAM_SUPPORT=y
+CONFIG_ESP32S3_SPIRAM_SUPPORT=y
+CONFIG_SPIRAM_USE_CAPS_ALLOC=y
+CONFIG_SPIRAM_ALLOW_STACK_EXTERNAL_MEMORY=y
+# Logging
+CONFIG_ESP_CONSOLE_UART_DEFAULT=y
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+# FATFS
+CONFIG_FATFS_LFN_STACK=y
+CONFIG_FATFS_CODEPAGE_DYNAMIC=y
+CONFIG_FATFS_FS_LOCK=8
+# SD SPI host
+CONFIG_SPI_MASTER_IN_IRAM=y
+CONFIG_SD_SPI_SUPPORT=y
+# Disable SDMMC (we use SPI mode for microSD)
+CONFIG_SDMMC_HOST=n
+# Task watchdog
+CONFIG_ESP_TASK_WDT=y
+CONFIG_ESP_TASK_WDT_TIMEOUT_S=8
+# TCP/IP stack kept minimal for this module
+CONFIG_ESP_NETIF_IP_LOST_TIMER_TIMEOUT=0
+
+

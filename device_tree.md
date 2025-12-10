@@ -1,0 +1,17 @@
+firmware/
+  CMakeLists.txt
+  sdkconfig.defaults
+  components/
+    common/
+      CMakeLists.txt
+      include/pins.h
+      include/logging.h
+      include/app_config.h
+      src/logging.cpp
+      src/app_config.cpp
+    storage_sd/
+      CMakeLists.txt
+      include/storage_sd.h
+      src/storage_sd.cpp
+  main/
+    main.cpp
