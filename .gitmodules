@@ -1,3 +1,0 @@
-[submodule "components/MatrixPanel_I2S_DMA"]
-	path = components/MatrixPanel_I2S_DMA
-	url = https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA.git
